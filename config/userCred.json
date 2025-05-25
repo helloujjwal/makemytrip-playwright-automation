@@ -1,0 +1,9 @@
+{
+    "credentials": {
+            "email": "sujjwal989@gmail.com",
+            "password": ""
+    },
+    "prod": {
+        "baseURL": "https://www.redbus.in/"
+    }
+}
