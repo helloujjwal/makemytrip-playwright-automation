@@ -1,4 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
+import * as dotenv from 'dotenv';
+import envConfig from "./config/userCred.json"
 
 /**
  * Read environment variables from file.
@@ -11,10 +13,28 @@ import { defineConfig, devices } from '@playwright/test';
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
+
+
+//dotenv.config();
+
+// Remove baseURL logic since we are using .env in test files
+// const env = process.env.ENV || 'dev';
+// const baseURL = envConfig[env]?.baseURL;
+// if (!baseURL) {
+//   throw new Error(`Invalid or missing baseURL for environment: ${env}`);
+// }
+
 export default defineConfig({
-  testDir: './tests',
+  testDir: 'workflows',
+
+  timeout: 70 * 80000,
+
+  expect: {
+    timeout: 70000,
+  },
+
   /* Run tests in files in parallel */
-  fullyParallel: true,
+  fullyParallel: false, //true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
@@ -27,6 +47,7 @@ export default defineConfig({
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://localhost:3000',
+    // baseURL,
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
@@ -39,15 +60,15 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'] },
     },
 
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
+    // {
+    //   name: 'firefox',
+    //   use: { ...devices['Desktop Firefox'] },
+    // },
 
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
+    // {
+    //   name: 'webkit',
+    //   use: { ...devices['Desktop Safari'] },
+    // },
 
     /* Test against mobile viewports. */
     // {
