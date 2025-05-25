@@ -1,5 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
-import * as dotenv from 'dotenv';
+// import * as dotenv from 'dotenv';
 import envConfig from "./config/userCred.json"
 
 /**
@@ -30,7 +30,7 @@ export default defineConfig({
   timeout: 70 * 80000,
 
   expect: {
-    timeout: 70000,
+    timeout: 7000,
   },
 
   /* Run tests in files in parallel */

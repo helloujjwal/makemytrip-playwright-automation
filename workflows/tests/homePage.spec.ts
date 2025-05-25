@@ -13,11 +13,16 @@ test.describe("@smoke Home page test", () => {
         page = await context.newPage();
         homePage = new HomePage (page);
         await page.goto(baseURL);
+        await homePage.closePopup()        
+        //await commonUtils.closePopup()
     
     })
 
     test('Visit homepage', async ({ }) => {
+        
         await homePage.validateMakeMyTripLogo();
+        await homePage.validateUserNav()
+        await homePage.validateBookingIteams();
     
     });
 
