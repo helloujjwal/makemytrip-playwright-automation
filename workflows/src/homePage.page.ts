@@ -79,7 +79,7 @@ export class HomePage {
         for(let i = 0; i < selectFlightCategory; i++){
             await this.page.locator(homePageLocators.selectFlightCategory).nth(i).isVisible();
             const fightCategoryText = await this.page.locator(homePageLocators.selectFlightCategory).nth(i).textContent();
-            console.log(`Category ${i + 1}: ${fightCategoryText?.trim()}`)
+            console.log(`Category ${i + 1}: ${fightCategoryText?.trim()}`);
         }
 
         console.log(selectFlightCategory);
