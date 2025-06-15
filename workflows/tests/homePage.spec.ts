@@ -24,7 +24,7 @@ test.describe("@smoke Validate Home Page", () => {
         await homePage.validateBookingIteams();
         await homePage.validateTripTypeRadioButtons();
         await homePage.validateTravelsFromAndTo();
-        await homePage.validateTravellAndClass();
+        await homePage.validateTravelAndClass();
         await homePage.validateSearchButton();
     
     });
