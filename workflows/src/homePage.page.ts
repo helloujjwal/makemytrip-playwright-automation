@@ -70,7 +70,7 @@ export class HomePage {
     }
 
 
-    async validateTravellAndClass(){
+    async validateTravelAndClass(){
         await expect(this.page.locator(homePageLocators.selectSpecialFareText)).toHaveText('Select a special fare');
         await (this.page.locator(homePageLocators.extraSavingsText)).innerText();
         
