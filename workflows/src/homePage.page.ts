@@ -46,5 +46,57 @@ export class HomePage {
     }
 
 
+    async validateTripTypeRadioButtons(){
+        const radioButtons = await this.page.locator(homePageLocators.tripTypeRadioButtons).count();
+
+        for(let i = 0; i < radioButtons; i++){
+            await this.page.locator(homePageLocators.tripTypeRadioButtons).nth(i).isVisible();
+            const radioText = await this.page.locator(homePageLocators.tripTypeRadioButtons).nth(i).textContent();
+            console.log(`Radio Button ${i + 1}: ${radioText?.trim()}`);
+        }
+
+        console.log(radioButtons);
+    }
+
+
+    async validateTravelsFromAndTo(){
+        await expect(this.page.locator(homePageLocators.travelFrom)).toBeVisible();
+        await expect(this.page.locator(homePageLocators.travelTo)).toBeVisible();
+        await expect(this.page.locator(homePageLocators.departureDate)).toBeVisible();
+        await this.page.waitForLoadState();
+        await expect(this.page.locator(homePageLocators.returnDate)).toBeVisible();
+        await expect(this.page.locator(homePageLocators.travellersAndClass)).toBeVisible();
+
+    }
+
+
+    async validateTravellAndClass(){
+        await expect(this.page.locator(homePageLocators.selectSpecialFareText)).toHaveText('Select a special fare');
+        await (this.page.locator(homePageLocators.extraSavingsText)).innerText();
+        
+        const selectFlightCategory = await (this.page.locator(homePageLocators.selectFlightCategory)).count();
+
+        for(let i = 0; i < selectFlightCategory; i++){
+            await this.page.locator(homePageLocators.selectFlightCategory).nth(i).isVisible();
+            const fightCategoryText = await this.page.locator(homePageLocators.selectFlightCategory).nth(i).textContent();
+            console.log(`Category ${i + 1}: ${fightCategoryText?.trim()}`)
+        }
+
+        console.log(selectFlightCategory);
+
+    }
+
+
+
+    async validateSearchButton(){
+        await expect(this.page.locator(homePageLocators.searchButton)).toBeVisible();
+        const searcgText = await (this.page.locator(homePageLocators.searchButton)).innerText();
+        console.log(searcgText)
+
+    }
+
+
+
+
 
 }
