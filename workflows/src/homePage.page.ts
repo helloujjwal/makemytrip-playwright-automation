@@ -90,8 +90,8 @@ export class HomePage {
 
     async validateSearchButton(){
         await expect(this.page.locator(homePageLocators.searchButton)).toBeVisible();
-        const searcgText = await (this.page.locator(homePageLocators.searchButton)).innerText();
-        console.log(searcgText)
+        const searchText = await (this.page.locator(homePageLocators.searchButton)).innerText();
+        console.log(searchText)
 
     }
 
