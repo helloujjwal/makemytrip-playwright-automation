@@ -1,1 +1,1 @@
-# redbus-playwright-automation
+# makemytrip-playwright-automation
