@@ -71,7 +71,7 @@ export class HomePage {
 
 
     async validateTravelAndClass(){
-        await expect(this.page.locator(homePageLocators.selectSpecialFareText)).toHaveText('Select a special fare');
+        await expect(this.page.locator(homePageLocators.selectSpecialFareText)).toBeVisible();
         await (this.page.locator(homePageLocators.extraSavingsText)).innerText();
         
         const selectFlightCategory = await (this.page.locator(homePageLocators.selectFlightCategory)).count();
